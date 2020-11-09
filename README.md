@@ -7,7 +7,7 @@ El videojuego desarrollado en el lenguaje de java representa una adaptación de 
 [¡Lee sobre Patolli!](https://drive.google.com/file/d/1UlbamqOIR-MzOyGLdCoA3T5gKfItrnr7/view)
 
 
-First Header | Second Header
+First Header 
 ------------ | -------------
 Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
