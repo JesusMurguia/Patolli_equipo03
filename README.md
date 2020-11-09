@@ -3,5 +3,7 @@ EL siguiente repositorio contiene los avances del proyecto final de la materia d
 
 ## Sobre el videojuego
 El videojuego desarrollado en el lenguaje de java representa una adaptación de lo que fue azar uno de los juegos más antiguos y jugados por prácticamente toda Mesoamérica.
+
 [¡Lee sobre Patolli!](https://drive.google.com/file/d/1UlbamqOIR-MzOyGLdCoA3T5gKfItrnr7/view)
 
+----
