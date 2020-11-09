@@ -6,11 +6,11 @@ El videojuego desarrollado en el lenguaje de java representa una adaptación de 
 
 [¡Lee sobre Patolli!](https://drive.google.com/file/d/1UlbamqOIR-MzOyGLdCoA3T5gKfItrnr7/view)
 
-
-First Header | 
+Descubre mas sobre Patolli | Ingresa al siguiente enlace
 ------------ | -------------
-Content from cell 1 | ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-Content from cell 1 | ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
 ----
 
 ## Futuras caracteristicas del programa
