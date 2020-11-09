@@ -6,6 +6,12 @@ El videojuego desarrollado en el lenguaje de java representa una adaptación de 
 
 [¡Lee sobre Patolli!](https://drive.google.com/file/d/1UlbamqOIR-MzOyGLdCoA3T5gKfItrnr7/view)
 
+
+¡Lee sobre Patolli! 
+-------------------| -------------
+                   |   ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+-------------------|--------------
+
 ----
 
 ## Futuras caracteristicas del programa
