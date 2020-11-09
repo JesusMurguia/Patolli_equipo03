@@ -10,7 +10,7 @@ El videojuego desarrollado en el lenguaje de java representa una adaptación de 
 First Header | 
 ------------ | -------------
 Content from cell 1 | ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-
+Content from cell 1 | ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 ----
 
 ## Futuras caracteristicas del programa
