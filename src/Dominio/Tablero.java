@@ -182,9 +182,9 @@ byte j = -1;
     }
 
     public void horizontal(int inicio,int fin,int x,int y,boolean casillaCentral,int posicionCasCentral,Graphics g) {
-byte j = -1;
+
         for (int i = inicio; i < fin; i++) {
-             j++;
+          
              
              if(casillaCentral && posicionCasCentral==i)
              {

@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/pruebagraficos/FrmMain.java</file>
             <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/pruebagraficos/FrmMenuPrincipal.java</file>
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/pruebagraficos/FrmMain.java</file>
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/Dominio/CasillaTriangular.java</file>
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/pruebagraficos/FrmConfigurarPartida.java</file>
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/Dominio/iCasilla.java</file>
             <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/Dominio/Tablero.java</file>
-=======
-            <file>file:/C:/Users/esnip/Documents/Patollinovember/Patolli_equipo03/src/pruebagraficos/FrmConfigurarPartida.java</file>
->>>>>>> 13651ca0d23cf4b1d0a4c974f80af3b1ea6f808a
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/pruebagraficos/FrmEsperandoJugadores.java</file>
+            <file>file:/C:/Users/javie/Desktop/5TO%20SEMESTRE/arquitectura/proyecto/Patolli_equipo03/src/Dominio/Casilla.java</file>
         </group>
     </open-files>
 </project-private>
