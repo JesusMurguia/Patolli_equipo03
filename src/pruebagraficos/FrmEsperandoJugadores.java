@@ -109,7 +109,7 @@ this.numeroCasillas = numeroCasillas;
        FrmMain main=new FrmMain(this.numeroCasillas);
         
        
-      //  this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

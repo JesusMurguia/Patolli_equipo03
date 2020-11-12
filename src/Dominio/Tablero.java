@@ -5,16 +5,8 @@
  */
 package Dominio;
 
-import Dominio.Ficha;
-import Dominio.CasillaCentral;
-import Dominio.Casilla;
-import Dominio.Caña;
-import java.awt.BasicStroke;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 /**
  *
@@ -22,19 +14,18 @@ import java.awt.Rectangle;
  */
 public class Tablero extends Canvas {
 //tablero de 68, 60 ,52,44
-           //14  12  10 08
-           //16  14  12 10
-    
-  private iCasilla[] casillas ;
+    //14  12  10 08
+    //16  14  12 10
+
+    private iCasilla[] casillas;
     private Caña cañas[];
     int numeroCasillas;
 
     public Tablero(int numeroCasillas) {
         this.numeroCasillas = numeroCasillas;
         casillas = new iCasilla[numeroCasillas];
+        calculateSquares();
     }
-    
-    
 
     public void setCasillas(iCasilla[] casillas) {
         this.casillas = casillas;
@@ -42,6 +33,59 @@ public class Tablero extends Canvas {
 
     public void lanzar() {
         System.out.println("lanzar cania");
+    }
+
+    byte centroArriba;
+    byte izquierdaCentro;
+    byte centroIzquierda;
+    byte abajoCentro;
+    byte centroAbajo;
+    byte derechaCentro;
+    byte centroArribaAux;
+    byte arribaCentro;
+
+    public void calculateSquares() {
+        //VARIABLES ( estas variables son el numero de fichas que se dibujaran por aspa depende del tablero elejido )
+        //de arriba al cento
+        //inicio arribaCentro =0
+        //fin
+        this.centroArriba = (byte) ((((casillas.length - 4) / 4) / 2) + 1);
+
+        //inicio 
+        //-centroArriba
+        //fin
+        this.izquierdaCentro = (byte) ((byte) ((((casillas.length - 4) / 4) / 2) + 1) + ((((casillas.length - 4) / 4) / 2)));
+
+        //inicio
+        //-IzquierdaCentro
+        ///fin
+        this.centroIzquierda = (byte) ((byte) ((((casillas.length - 4) / 4) / 2) * 2 + 1) + ((((casillas.length - 4) / 4) / 2) + 1));
+
+        //inicio
+        //-centroIzquierda
+        //fin 
+        this.abajoCentro = (byte) (centroIzquierda + ((((casillas.length - 4) / 4) / 2)));
+
+        //inicio
+        //-abajoCentro
+        //fin
+        this.centroAbajo = (byte) (abajoCentro + ((((casillas.length - 4) / 4) / 2) + 1));
+
+        //incio
+        //-centroAbajo
+        //fin
+        this.derechaCentro = (byte) (centroAbajo + ((((casillas.length - 4) / 4) / 2)));
+
+        //inicio
+        //-derechaCentro
+        //fin
+        this.centroArribaAux = (byte) (derechaCentro + ((((casillas.length - 4) / 4) / 2)) + 1);
+
+        //inicio
+        //-centroArribaAux
+        //fin
+        this.arribaCentro = (byte) (centroArribaAux + ((((casillas.length - 4) / 4) / 2)));
+
     }
 
     /**
@@ -53,151 +97,195 @@ public class Tablero extends Canvas {
     @Override
     public void paint(Graphics g) {
 
-        //VARIABLES ( estas variables son el numero de fichas que se dibujaran por aspa depende del tablero elejido )
-        //de arriba al cento
+        //--------------------------//
+        //tablero de 14 por aspa
+        switch (casillas.length) {
+            case 68:
+                drawIxachiBoard(g);
+                break;
+            case 60:
+                //-----------------------//
+                //tablero de 12 por aspa
 
-        //inicio arribaCentro =0
-      //fin
-        byte centroArriba = (byte) ((((casillas.length - 4) / 4) / 2)+1);
-       
+                drawBigBoard(g);
+                break;
+            case 52:
+                //--------------------tablero de 10 por aspa-----------------//
 
-
-        //inicio 
-        //-centroArriba
-        //fin
-        byte izquierdaCentro = (byte) ((byte) ((((casillas.length - 4) / 4) / 2) + 1)+ ((((casillas.length - 4) / 4) / 2)));
-        
-        //inicio
-        //-IzquierdaCentro
-         ///fin
-        byte centroIzquierda =(byte) ((byte) ((((casillas.length - 4) / 4) / 2) * 2+1)+((((casillas.length - 4) / 4) / 2) + 1));
-       
-        //inicio
-        //-centroIzquierda
-        //fin 
-        byte abajoCentro = (byte) (centroIzquierda +  ((((casillas.length - 4) / 4) / 2)));
-        
-        //inicio
-        //-abajoCentro
-        //fin
-        byte centroAbajo = (byte) (abajoCentro+((((casillas.length - 4) / 4) / 2)+1));
-        
-        //incio
-        //-centroAbajo
-        //fin
-        byte derechaCentro =(byte) (centroAbajo+((((casillas.length - 4) / 4) / 2)));
-    
-        
-        //inicio
-        //-derechaCentro
-        //fin
-        byte centroArribaAux=(byte) (derechaCentro+((((casillas.length - 4) / 4) / 2))+1);
-        
-        //inicio
-        //-centroArribaAux
-        //fin
-        byte arribaCentro=(byte) (centroArribaAux+((((casillas.length - 4) / 4) / 2)));
-        
-      
-
-
-       
-      //--------------------------//
-      //tablero de 14 por aspa
-      switch (casillas.length) {
-          case 68:
-              vertical(0, centroArriba, 560, 50,false,0, g);
-              horizontal(centroArriba, izquierdaCentro, 800, 290,true,centroArriba,  g);
-              horizontal(izquierdaCentro, centroIzquierda, 1070, 320,false,0, g);
-              vertical(centroIzquierda, abajoCentro, 560, 350,true,centroIzquierda, g);
-              vertical(abajoCentro, centroAbajo, 590, 320, false,0,g);
-              horizontal(centroAbajo, derechaCentro, 2120, 320,true, derechaCentro-1,  g);
-              horizontal(derechaCentro, centroArribaAux, 2360, 290, false,0,g);
-              vertical(centroArribaAux, arribaCentro, 590, 50,true, arribaCentro-1, g);
-              break;
-          case 60:
-              //-----------------------//
-              //tablero de 12 por aspa
-              
-              
-              vertical(0, centroArriba, 560, 80,false,0, g);
-              horizontal(centroArriba, izquierdaCentro, 770, 290,true,centroArriba, g);
-              horizontal(izquierdaCentro, centroIzquierda, 1010, 320,false,0, g);
-              vertical(centroIzquierda, abajoCentro, 560, 350,true,centroIzquierda, g);
-              vertical(abajoCentro, centroAbajo, 590, 320,false,0, g);
-              horizontal(centroAbajo, derechaCentro, 1940, 320,true, derechaCentro-1, g);
-              horizontal(derechaCentro, centroArribaAux, 2150, 290,false,0, g);
-              vertical(centroArribaAux, arribaCentro, 590, 80, true, arribaCentro-1,g);
-              break;
-          case 52:
-              //--------------------tablero de 10 por aspa-----------------//
-              
-              vertical(0, centroArriba, 560, 80,false,0, g);
-              horizontal(centroArriba, izquierdaCentro, 740, 260,true,centroArriba, g);
-              horizontal(izquierdaCentro, centroIzquierda, 950, 290,false,0, g);
-              vertical(centroIzquierda, abajoCentro, 560, 320,true,centroIzquierda, g);
-              vertical(abajoCentro, centroAbajo, 590, 290,false,0, g);
-              horizontal(centroAbajo, derechaCentro, 1760, 290,true, derechaCentro-1, g);
-              horizontal(derechaCentro, centroArribaAux, 1940, 260,false,0, g);
-              vertical(centroArribaAux, arribaCentro, 590, 80, true, arribaCentro-1,g);
-              break;
-          default:
-              //--------------------tablero de 08 por aspa-----------------//
-              
-              vertical(0, centroArriba, 560, 80, false,0,g);
-              horizontal(centroArriba, izquierdaCentro, 710, 230,true,centroArriba, g);
-              horizontal(izquierdaCentro, centroIzquierda, 890, 260,false,0, g);
-              vertical(centroIzquierda, abajoCentro, 560, 290,true,centroIzquierda, g);
-              vertical(abajoCentro, centroAbajo, 590, 260,false,0, g);
-              horizontal(centroAbajo, derechaCentro, 1580, 260,true, derechaCentro-1,g);
-              horizontal(derechaCentro, centroArribaAux, 1730, 230,false,0, g);
-              vertical(centroArribaAux, arribaCentro, 590, 80,true, arribaCentro-1,g);
-              break;
-      }
+                drawMediumBoard(g);
+                break;
+            default:
+                //--------------------tablero de 08 por aspa-----------------//
+                /*
+                inicio, fin, x, y, boolean casillaCentral, posicionCasCentral, posicionTriangular, graficos*/
+                drawSmallBoard(g);
+                break;
+        }
     }
 
     public iCasilla[] getCasillas() {
         return casillas;
     }
 
-    private void vertical(int inicio, int fin,int x,int y, boolean casillaCentral,int posicionCasCentral,Graphics g) {
-byte j = -1;
+    /**
+     *
+     * @param inicio
+     * @param fin
+     * @param x
+     * @param y
+     * @param casillaCentral
+     * @param posicionCasCentral
+     * @param posicionTriangular
+     * @param g
+     */
+    private void verticalPositiva(int inicio, int fin, int x, int y, boolean casillaCentral,
+            int posicionTriangular, Graphics g) {
+        byte j = -1;
         for (int i = inicio; i < fin; i++) {
-      j++;
-            
-      if(casillaCentral && posicionCasCentral==i)
-      {
-          
-          casillas[i]= new CasillaCentral(x, y + 30 * j);
-      }else{
-            casillas[i] = new Casilla(x, y + 30 * j);
-           
-      }
-          
+            j++;
+
+            if (casillaCentral && j == 0) {
+                casillas[i] = new CasillaCentral(x, y + 30 * j);
+            } else if (j == posicionTriangular) {
+                casillas[i] = new CasillaTriangularCuadrada(x, y + 30 * j);
+                casillas[i].paint(g);
+                i = i + 1;
+                j++;
+                casillas[i] = new CasillaTriangular(x, y + 30 * j);
+                casillas[i].paint(g);
+                i = i + 1;
+                j++;
+                casillas[i] = new CasillaTriangularCuadrada(x, y + 30 * j);
+                System.out.println("Cocaina");
+            } else {
+                casillas[i] = new Casilla(x, y + 30 * j);
+//                System.out.println("Valor x: " + x);
+//                System.out.println("Valor y: " + y + 30 * j);
+
+            }
             casillas[i].paint(g);
-            
 
         }
-       
+
     }
 
-    public void horizontal(int inicio,int fin,int x,int y,boolean casillaCentral,int posicionCasCentral,Graphics g) {
-
+    private void verticalNegativa(int inicio, int fin, int x, int y, boolean casillaCentral,
+            int posicionTriangular, Graphics g) {
+        byte j = -1;
         for (int i = inicio; i < fin; i++) {
-          
-             
-             if(casillaCentral && posicionCasCentral==i)
-             {
-                 casillas[i]=new CasillaCentral(x - 30 * i, y);
-             }else{
-            casillas[i] = new Casilla(x - 30 * i, y);
-             }
+            j++;
+
+            if (casillaCentral && j == 0) {
+                casillas[i] = new CasillaCentral(x, y - 30 * j);
+            } else if (j == posicionTriangular) {
+                casillas[i] = new CasillaTriangularCuadrada(x, y - 30 * j);
+                casillas[i].paint(g);
+                i = i + 1;
+                j++;
+                casillas[i] = new CasillaTriangular(x, y - 30 * j);
+                casillas[i].paint(g);
+                i = i + 1;
+                j++;
+                casillas[i] = new CasillaTriangularCuadrada(x, y - 30 * j);
+                System.out.println("Cocaina");
+            } else {
+                casillas[i] = new Casilla(x, y - 30 * j);
+//                System.out.println("Valor x: " + x);
+//                System.out.println("Valor y: " + y + 30 * j);
+
+            }
             casillas[i].paint(g);
-             
+
         }
 
-       
     }
-    
-    
+
+    /**
+     *
+     * @param inicio
+     * @param fin
+     * @param x
+     * @param y
+     * @param casillaCentral
+     * @param posicionCasCentral
+     * @param g
+     */
+    public void horizontalNegativa(int inicio, int fin, int x, int y, boolean casillaCentral, Graphics g) {
+        int j = -1;
+        for (int i = inicio; i < fin; i++) {
+            j++;
+            if (casillaCentral && j == 0) {
+                casillas[i] = new CasillaCentral(x - 30 * i, y);
+                System.out.println(x - 30 * i);
+            } else {
+                casillas[i] = new Casilla(x - 30 * i, y);
+                System.out.println(x - 30 * i);
+            }
+
+            casillas[i].paint(g);
+
+        }
+
+    }
+
+    public void horizontalPositiva(int inicio, int fin, int x, int y, boolean casillaCentral, Graphics g) {
+        byte j = -1;
+        for (int i = inicio; i < fin; i++) {
+            j++;
+            if (casillaCentral && j == 0) {
+                casillas[i] = new CasillaCentral(x + 30 * j, y);
+            } else {
+                casillas[i] = new Casilla(x + 30 * j, y);
+            }
+
+            casillas[i].paint(g);
+
+        }
+
+    }
+
+    public void drawIxachiBoard(Graphics g) {
+        verticalPositiva(0, this.centroArriba, 560, 50, false, 1, g);
+        horizontalNegativa(this.centroArriba, this.izquierdaCentro, 800, 290, true, g);
+        horizontalPositiva(this.izquierdaCentro, this.centroIzquierda, 320, 320, false, g);
+        verticalPositiva(this.centroIzquierda, this.abajoCentro, 560, 350, true, 4, g);
+        verticalNegativa(this.abajoCentro, this.centroAbajo, 590, 560, false, 1, g);
+        horizontalPositiva(this.centroAbajo, this.derechaCentro, 620, 320, true, g);
+        horizontalNegativa(this.derechaCentro, this.centroArribaAux, 2360, 290, false, g);
+        verticalNegativa(this.centroArribaAux, this.arribaCentro, 590, 260, true, 4, g);
+    }
+
+    public void drawBigBoard(Graphics g) {
+        verticalPositiva(0, this.centroArriba, 560, 80, false, 1, g);
+        horizontalNegativa(this.centroArriba, this.izquierdaCentro, 770, 290, true, g);
+        horizontalPositiva(this.izquierdaCentro, this.centroIzquierda, 350, 320, false, g);
+        verticalPositiva(this.centroIzquierda, this.abajoCentro, 560, 350, true, 3, g);
+        verticalNegativa(this.abajoCentro, this.centroAbajo, 590, 530, false, 1, g);
+        horizontalPositiva(this.centroAbajo, this.derechaCentro, 620, 320, true, g);
+        horizontalNegativa(derechaCentro, this.centroArribaAux, 2150, 290, false, g);
+        verticalNegativa(this.centroArribaAux, this.arribaCentro, 590, 260, true, 3, g);
+    }
+
+    public void drawMediumBoard(Graphics g) {
+        verticalPositiva(0, this.centroArriba, 560, 80, false, 1, g);
+        horizontalNegativa(this.centroArriba, this.izquierdaCentro, 740, 260, true, g);
+        horizontalPositiva(this.izquierdaCentro, this.centroIzquierda, 380, 290, false, g);
+        verticalPositiva(this.centroIzquierda, this.abajoCentro, 560, 320, true, 2, g);
+        verticalNegativa(this.abajoCentro, this.centroAbajo, 590, 470, false, 1, g);
+        horizontalPositiva(this.centroAbajo, this.derechaCentro, 620, 290, true, g);
+        horizontalNegativa(this.derechaCentro, this.centroArribaAux, 1940, 260, false, g);
+        verticalNegativa(this.centroArribaAux, this.arribaCentro, 590, 230, true, 2, g);
+    }
+
+    public void drawSmallBoard(Graphics g) {
+        verticalPositiva(0, this.centroArriba, 560, 80, false, 1, g);
+        horizontalNegativa(this.centroArriba, this.izquierdaCentro, 710, 230, true, g);
+        horizontalPositiva(izquierdaCentro, this.centroIzquierda, 410, 260, false, g);
+        verticalPositiva(this.centroIzquierda, this.abajoCentro, 560, 290, true, 1, g);
+        verticalNegativa(this.abajoCentro, this.centroAbajo, 590, 410, false, 1, g);
+        horizontalPositiva(this.centroAbajo, this.derechaCentro, 620, 260, true, g);
+        horizontalNegativa(this.derechaCentro, this.centroArribaAux, 1730, 230, false, g);
+        verticalNegativa(this.centroArribaAux, this.arribaCentro, 590, 200, true, 1, g);
+    }
+
 }
