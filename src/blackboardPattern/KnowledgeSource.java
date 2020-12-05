@@ -1,5 +1,7 @@
 package blackboardPattern;
 
+import blackboardObjects.BlackBoardObject;
+
 /**
  * The BlackBoard notifies the BlackBoardController whenever it receives a BlackBoardObject
  * 

@@ -1,7 +1,7 @@
 package Controller;
 
 import blackboardPattern.AbstractBlackBoardController;
-import blackboardPattern.BlackBoardObject;
+import blackboardObjects.BlackBoardObject;
 
 /**
  * This blackboard controller gets notified when one or

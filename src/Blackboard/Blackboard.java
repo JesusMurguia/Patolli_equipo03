@@ -1,7 +1,7 @@
 package Blackboard;
 
 import blackboardPattern.AbstractBlackBoard;
-import blackboardPattern.BlackBoardObject;
+import blackboardObjects.BlackBoardObject;
 
 public class Blackboard extends AbstractBlackBoard { 
 

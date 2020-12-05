@@ -1,5 +1,7 @@
 package blackboardPattern;
 
+import blackboardObjects.BlackBoardObject;
+
 /**
  * The AbstractKnowledgeSource implements {@link KnowledgeSource}
  * 

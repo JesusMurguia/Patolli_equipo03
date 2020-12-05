@@ -6,6 +6,7 @@ package blackboardPattern;
  * 
  * @author Nalla Senthilnathan http://github.com/mapteb
  */
+import blackboardObjects.BlackBoardObject;
 import java.util.List;
 import java.util.Observer;
 import java.util.concurrent.ExecutorService;

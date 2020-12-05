@@ -1,5 +1,6 @@
 package blackboardPattern;
 
+import blackboardObjects.BlackBoardObject;
 import java.util.Observable;
 
 /**

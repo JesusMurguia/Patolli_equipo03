@@ -5,7 +5,7 @@ import blackboardObjects.tirarDadosBBO;
 import blackboardObjects.turnoBBO;
 import blackboardPattern.AbstractKnowledgeSource;
 import blackboardPattern.BlackBoard;
-import blackboardPattern.BlackBoardObject;
+import blackboardObjects.BlackBoardObject;
 
 /**
  * The FrontVehicleDataKS is an implementation of {@link AbstractKnowledgeSource}

@@ -4,7 +4,7 @@ import blackboardObjects.movimientoBBO;
 import blackboardObjects.tirarDadosBBO;
 import blackboardPattern.AbstractKnowledgeSource;
 import blackboardPattern.BlackBoard;
-import blackboardPattern.BlackBoardObject;
+import blackboardObjects.BlackBoardObject;
 
 /**
  * The DeltaSpeedDataKS is an implementation of {@link AbstractKnowledgeSource}
