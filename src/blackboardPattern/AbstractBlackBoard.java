@@ -11,6 +11,7 @@ import java.util.Observable;
  *
  */
 public abstract class AbstractBlackBoard extends Observable implements BlackBoard {
+     @Override
      public void addBlackBoardObject(BlackBoardObject bbo) {
 
           setChanged();
@@ -18,6 +19,7 @@ public abstract class AbstractBlackBoard extends Observable implements BlackBoar
           notifyController(bbo);
      }
 
+     @Override
      public void notifyController(BlackBoardObject bbo) {
           notifyObservers(bbo);
      }

@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 
-package pruebagraficos;
+package InterfazGrafica;
 
 /**
  *
  * @author jesus
  */
-public class FrmConfigurarPartida extends javax.swing.JFrame {
-FrmEsperandoJugadores waitingplayers=new FrmEsperandoJugadores();
+public class FrmConfiguracionPartida extends javax.swing.JFrame {
+//FrmSalaEspera waitingplayers=new FrmSalaEspera();
+    FrmMain juegoPrincipal;
 int numeroCasillas = 44;
     /** Creates new form FrmConfigurarPartida */
-    public FrmConfigurarPartida() {
+    public FrmConfiguracionPartida() {
         initComponents();
     }
 
@@ -31,7 +32,7 @@ int numeroCasillas = 44;
         jTextField2 = new javax.swing.JTextField();
         Casillas = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        crearPartida = new javax.swing.JButton();
         CasillasCombo = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -60,22 +61,22 @@ int numeroCasillas = 44;
         jLabel6.setText("Numero de fichas:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partida (1).png"))); // NOI18N
-        jButton1.setText("CREAR PARTIDA");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partidahover (1).png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        crearPartida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        crearPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partida (1).png"))); // NOI18N
+        crearPartida.setText("CREAR PARTIDA");
+        crearPartida.setContentAreaFilled(false);
+        crearPartida.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partidahover (1).png"))); // NOI18N
+        crearPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                crearPartida(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 317, 91));
+        getContentPane().add(crearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 317, 91));
 
         CasillasCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "chico", "mediano", "grande", "ixachi" }));
         CasillasCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CasillasComboActionPerformed(evt);
+                checkNumeroCasillas(evt);
             }
         });
         getContentPane().add(CasillasCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 130, 30));
@@ -103,18 +104,20 @@ int numeroCasillas = 44;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("flag zero");
-        waitingplayers=new FrmEsperandoJugadores(this.numeroCasillas);
+    private void crearPartida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPartida
+       
+       // waitingplayers=new FrmSalaEspera(this.numeroCasillas);
+       juegoPrincipal=new FrmMain(this.numeroCasillas);
+       
       //  waitingplayers.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_crearPartida
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void CasillasComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasillasComboActionPerformed
+    private void checkNumeroCasillas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkNumeroCasillas
        System.out.println(CasillasCombo.getSelectedItem());
        
        switch(CasillasCombo.getSelectedItem().toString())
@@ -129,7 +132,7 @@ int numeroCasillas = 44;
            break;
        }
        
-    }//GEN-LAST:event_CasillasComboActionPerformed
+    }//GEN-LAST:event_checkNumeroCasillas
 
     /**
      * @param args the command line arguments
@@ -148,20 +151,21 @@ int numeroCasillas = 44;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigurarPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmConfiguracionPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigurarPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmConfiguracionPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigurarPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmConfiguracionPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigurarPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmConfiguracionPartida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmConfigurarPartida().setVisible(true);
+                new FrmConfiguracionPartida().setVisible(true);
             }
         });
     }
@@ -169,7 +173,7 @@ int numeroCasillas = 44;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Casillas;
     private javax.swing.JComboBox<String> CasillasCombo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton crearPartida;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

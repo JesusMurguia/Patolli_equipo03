@@ -17,6 +17,7 @@ public abstract class AbstractBlackBoardController implements BlackBoardControll
 
      protected ExecutorService exsvc;
 
+     @Override
      public void update(Observable bb, Object bbo) {
 
           if (((BlackBoardObject) bbo).isReady())

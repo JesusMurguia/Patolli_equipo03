@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dominio;
+package InterfazGrafica;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
@@ -17,17 +17,17 @@ public class Tablero extends Canvas {
     //14  12  10 08
     //16  14  12 10
 
-    private iCasilla[] casillas;
-    private Caña cañas[];
+    private FrmAbstractCasilla[] casillas;
+   // private Caña cañas[];
     int numeroCasillas;
 
     public Tablero(int numeroCasillas) {
         this.numeroCasillas = numeroCasillas;
-        casillas = new iCasilla[numeroCasillas];
+        casillas = new FrmAbstractCasilla[numeroCasillas];
         calculateSquares();
     }
 
-    public void setCasillas(iCasilla[] casillas) {
+    public void setCasillas(FrmAbstractCasilla[] casillas) {
         this.casillas = casillas;
     }
 
@@ -123,7 +123,7 @@ public class Tablero extends Canvas {
         }
     }
 
-    public iCasilla[] getCasillas() {
+    public FrmAbstractCasilla[] getCasillas() {
         return casillas;
     }
 
@@ -145,20 +145,20 @@ public class Tablero extends Canvas {
             j++;
 
             if (casillaCentral && j == 0) {
-                casillas[i] = new CasillaCentral(x, y + 30 * j);
+                casillas[i] = new FrmCasillaCentral(x, y + 30 * j);
             } else if (j == posicionTriangular) {
-                casillas[i] = new CasillaTriangularCuadrada(x, y + 30 * j);
+                casillas[i] = new FrmCasillaTriangularCuadrada(x, y + 30 * j);
                 casillas[i].paint(g);
                 i = i + 1;
                 j++;
-                casillas[i] = new CasillaTriangular(x, y + 30 * j);
+                casillas[i] = new FrmCasillaTriangular(x, y + 30 * j);
                 casillas[i].paint(g);
                 i = i + 1;
                 j++;
-                casillas[i] = new CasillaTriangularCuadrada(x, y + 30 * j);
+                casillas[i] = new FrmCasillaTriangularCuadrada(x, y + 30 * j);
                 System.out.println("Cocaina");
             } else {
-                casillas[i] = new Casilla(x, y + 30 * j);
+                casillas[i] = new FrmCasilla(x, y + 30 * j);
 //                System.out.println("Valor x: " + x);
 //                System.out.println("Valor y: " + y + 30 * j);
 
@@ -176,20 +176,20 @@ public class Tablero extends Canvas {
             j++;
 
             if (casillaCentral && j == 0) {
-                casillas[i] = new CasillaCentral(x, y - 30 * j);
+                casillas[i] = new FrmCasillaCentral(x, y - 30 * j);
             } else if (j == posicionTriangular) {
-                casillas[i] = new CasillaTriangularCuadrada(x, y - 30 * j);
+                casillas[i] = new FrmCasillaTriangularCuadrada(x, y - 30 * j);
                 casillas[i].paint(g);
                 i = i + 1;
                 j++;
-                casillas[i] = new CasillaTriangular(x, y - 30 * j);
+                casillas[i] = new FrmCasillaTriangular(x, y - 30 * j);
                 casillas[i].paint(g);
                 i = i + 1;
                 j++;
-                casillas[i] = new CasillaTriangularCuadrada(x, y - 30 * j);
+                casillas[i] = new FrmCasillaTriangularCuadrada(x, y - 30 * j);
               
             } else {
-                casillas[i] = new Casilla(x, y - 30 * j);
+                casillas[i] = new FrmCasilla(x, y - 30 * j);
 //                System.out.println("Valor x: " + x);
 //                System.out.println("Valor y: " + y + 30 * j);
 
@@ -215,10 +215,10 @@ public class Tablero extends Canvas {
         for (int i = inicio; i < fin; i++) {
             j++;
             if (casillaCentral && j == 0) {
-                casillas[i] = new CasillaCentral(x - 30 * i, y);
+                casillas[i] = new FrmCasillaCentral(x - 30 * i, y);
                 System.out.println(x - 30 * i);
             } else {
-                casillas[i] = new Casilla(x - 30 * i, y);
+                casillas[i] = new FrmCasilla(x - 30 * i, y);
                 System.out.println(x - 30 * i);
             }
 
@@ -233,9 +233,9 @@ public class Tablero extends Canvas {
         for (int i = inicio; i < fin; i++) {
             j++;
             if (casillaCentral && j == 0) {
-                casillas[i] = new CasillaCentral(x + 30 * j, y);
+                casillas[i] = new FrmCasillaCentral(x + 30 * j, y);
             } else {
-                casillas[i] = new Casilla(x + 30 * j, y);
+                casillas[i] = new FrmCasilla(x + 30 * j, y);
             }
 
             casillas[i].paint(g);

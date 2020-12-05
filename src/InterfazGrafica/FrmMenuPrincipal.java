@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pruebagraficos;
+package InterfazGrafica;
 
 /**
  *
  * @author jesus
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
-    FrmConfigurarPartida configScreen=new FrmConfigurarPartida();
-    FrmEsperandoJugadores waitingplayers=new FrmEsperandoJugadores();
+    FrmConfiguracionPartida configScreen=new FrmConfiguracionPartida();
+  
     /**
      * Creates new form FrmIniciarPartida
      */
@@ -45,7 +45,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partidahover (1).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                crearPartida(evt);
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 330, 100));
@@ -56,13 +56,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_unirse-a-salahover (1).png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                unirsePartida(evt);
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 300, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/menuprincipalv2.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 810, 780));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 780));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,23 +75,23 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       waitingplayers.setVisible(true);
+    private void unirsePartida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unirsePartida
+     //  waitingplayers.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_unirsePartida
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void crearPartida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPartida
         // TODO add your handling code here:
-        configScreen.setVisible(true);
+       configScreen.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_crearPartida
 
     /**
      * @param args the command line arguments
@@ -124,6 +124,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println("entre");
                 new FrmMenuPrincipal().setVisible(true);
             }
         });

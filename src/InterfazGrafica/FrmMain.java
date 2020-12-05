@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pruebagraficos;
+package InterfazGrafica;
 
 import Dominio.Tablero;
 import Dominio.Jugador;
@@ -19,8 +19,6 @@ import javax.swing.JOptionPane;
  */
 public class FrmMain extends javax.swing.JFrame {
 
-    
-     private FrmEsperandoJugadores WaitingPlayers=new FrmEsperandoJugadores();
       private Tablero tablero;
       //cse crea jugador
      private Jugador jugador_uno;
@@ -105,7 +103,7 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAvanzarActionPerformed
-        System.out.println("entre");
+       
         avanzar();
         this.add(tablero);
         

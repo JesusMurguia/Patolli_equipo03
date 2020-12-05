@@ -13,11 +13,11 @@ import java.awt.Color;
  */
 public enum Colores {
     
-     BLANCO(Color.white), 
+     BLANCO(Color.WHITE), 
     AMARILLO(Color.YELLOW), 
     ROJO(Color.RED),
     NEGRO(Color.BLACK),
-    GRIS(Color.lightGray),
+    GRIS(Color.LIGHT_GRAY),
     AZUL(Color.BLUE);
 
   
