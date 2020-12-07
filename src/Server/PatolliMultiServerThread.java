@@ -5,47 +5,85 @@
  */
 package Server;
 
+import blackboardObjects.BlackBoardObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author javie
  */
-public class PatolliMultiServerThread  extends Thread{
-        private Socket socket = null;
+public class PatolliMultiServerThread extends Thread {
+
+    private Socket socket = null;
+    public static final ArrayList<Socket> sockets = new ArrayList<>();
+
+    public ArrayList<Socket> getSockets() {
+        return sockets;
+    }
 
     public PatolliMultiServerThread(Socket socket) {
-        super("KKMultiServerThread");
+        super("patolliServer");
+
+        sockets.add(socket);
         this.socket = socket;
     }
-    
+
     @Override
     public void run() {
+          ObjectOutputStream out =null;
+        try {
 
-        try (
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                    socket.getInputStream()));
-        ) {
-            String inputLine, outputLine;
+            //recibir bbos
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+
+            BlackBoardObject input, output=null;
             PatolliProtocol kkp = new PatolliProtocol();
-            outputLine = kkp.processInput(null);
-            out.println(outputLine);
 
-            while ((inputLine = in.readLine()) != null) {
-                outputLine = kkp.processInput(inputLine);
-                out.println(outputLine);
-                if (outputLine.equals("Bye"))
-                    break;
+            while((input = (BlackBoardObject) in.readObject()) != null && sockets.size() < 4)
+            {
+                System.out.println("reciviendo from cliente");
+                output = kkp.processInput(input);
+                
+                
+                for (int i = 0; i < sockets.size(); i++) {
+                     out = new ObjectOutputStream(sockets.get(i).getOutputStream());
+                     System.out.println(out);
+                    out.writeObject(output);
+                    out.flush();
+                }
+//                 for (Socket cliente : sockets) {
+//                    System.out.println("entre");
+//                    
+//                     out = new ObjectOutputStream(cliente.getOutputStream());
+//                     System.out.println(out);
+//                    out.writeObject(output);
+//                    out.flush();
+//                 
+//                  
+//                } 
+            
             }
-            socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            
+               
+                
+            
+           out.close();
+           in.close();
+          
+          //  in.close();
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(PatolliMultiServerThread.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
+
 }

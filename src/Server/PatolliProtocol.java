@@ -5,66 +5,67 @@
  */
 package Server;
 
+import Blackboard.Blackboard;
+import Controller.Controller;
+import FuentesdeConocimiento.CrearPartidaKS;
+import FuentesdeConocimiento.MovimientoKS;
+import FuentesdeConocimiento.PagarApuestaKS;
+import FuentesdeConocimiento.SalirPartidaKS;
+import FuentesdeConocimiento.TirarDadosKS;
+import FuentesdeConocimiento.TurnoKS;
+import FuentesdeConocimiento.UnirsePartidaKS;
+import blackboardObjects.BlackBoardObject;
+import blackboardObjects.CrearPartidaBBO;
+import blackboardObjects.UnirsePartidaBBO;
+import blackboardPattern.KnowledgeSource;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author javie
  */
 public class PatolliProtocol {
-     private static final int WAITING = 0;
-    private static final int SENTKNOCKKNOCK = 1;
-    private static final int SENTCLUE = 2;
-    private static final int ANOTHER = 3;
 
-    private static final int NUMJOKES = 5;
+    /**
+     *
+     */
+    public static final Blackboard blackboard = new Blackboard();
+    Controller controller = new Controller();
 
-    private int state = WAITING;
-    private int currentJoke = 0;
+    public void addObserver() {
+        blackboard.addObserver(controller);
+    }
 
-    private String[] clues = { "Turnip", "Little Old Lady", "Atch", "Who", "Who" };
-    private String[] answers = { "Turnip the heat, it's cold in here!",
-                                   "I didn't know you could yodel!",
-                                   "Bless you!",
-                                   "Is there an owl in here?",
-                                   "Is there an echo in here?" };
+    public void addKnowledgeSources() {
 
-  public String processInput(String theInput) {
-    String theOutput = null;
+        List<KnowledgeSource> ksList = new ArrayList<>();
+        ksList.add(new CrearPartidaKS());
+        ksList.add(new UnirsePartidaKS());
+        ksList.add(new TurnoKS());
+        ksList.add(new TirarDadosKS());
+        ksList.add(new MovimientoKS());
+        ksList.add(new SalirPartidaKS());
+        ksList.add(new PagarApuestaKS());
+        controller.setKnowledgeSourceList(ksList);
+    }
 
-    if (state == WAITING) {
-      theOutput = "Knock! Knock!";
-      state = SENTKNOCKKNOCK;
-    } else if (state == SENTKNOCKKNOCK) {
-      if (theInput.equalsIgnoreCase("Who's there?")) {
-        theOutput = clues[currentJoke];
-        state = SENTCLUE;
-      } else {
-        theOutput = "You're supposed to say \"Who's there?\"! " +
-		"Try again. Knock! Knock!";
-      }
-    } else if (state == SENTCLUE) {
-      if (theInput.equalsIgnoreCase(clues[currentJoke] + " who?")) {
-        theOutput = answers[currentJoke] + " Want another? (y/n)";
-        state = ANOTHER;
-      } else {
-        theOutput = "You're supposed to say \"" + 
-		clues[currentJoke] + 
-		" who?\"" + 
-		"! Try again. Knock! Knock!";
-        state = SENTKNOCKKNOCK;
-      }
-    } else if (state == ANOTHER) {
-      if (theInput.equalsIgnoreCase("y")) {
-         theOutput = "Knock! Knock!";
-         if (currentJoke == (NUMJOKES - 1))
-           currentJoke = 0;
-         else
-           currentJoke++;
-           state = SENTKNOCKKNOCK;
-         } else {
-           theOutput = "Bye.";
-           state = WAITING;
-         }
-      }
-      return theOutput;
-    }    
+    public BlackBoardObject processInput(BlackBoardObject blackBoardObject) {
+
+        if (blackBoardObject instanceof CrearPartidaBBO) {
+            CrearPartidaBBO crearPartidaBBO = (CrearPartidaBBO) blackBoardObject;
+            addKnowledgeSources();
+            addObserver();
+            blackboard.addBlackBoardObject(crearPartidaBBO);
+
+        } else if (blackBoardObject instanceof UnirsePartidaBBO) {
+
+            UnirsePartidaBBO unirsePartidaBBO = (UnirsePartidaBBO) blackBoardObject;
+            blackboard.addBlackBoardObject(unirsePartidaBBO);
+          
+
+        }
+
+        return blackboard.getbboCliente();
+    }
 }

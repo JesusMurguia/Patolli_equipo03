@@ -1,5 +1,6 @@
 package Controller;
 
+import Server.PatolliProtocol;
 import blackboardPattern.AbstractBlackBoardController;
 import blackboardObjects.BlackBoardObject;
 
@@ -14,7 +15,8 @@ public class Controller extends AbstractBlackBoardController {
 
      @Override
      public void execOutcome(BlackBoardObject bbo) {
-          // TODO Auto-generated method stub
-          System.out.println("==>> Se acabó el turno");
+       
+        
+         // System.out.println("==>> Se CREO");
      }
 }

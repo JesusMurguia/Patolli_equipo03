@@ -24,10 +24,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="0" pref="350" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="501" max="32767" attributes="0"/>
+              <Component id="jButtonAvanzar" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonAvanzar" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelJugadorUno" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelJugadorDos" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelJugadorTres" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelJugadorCuatro" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -36,10 +49,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelJugadorUno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelJugadorTres" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonAvanzar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="232" max="32767" attributes="0"/>
+              <EmptySpace pref="276" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelJugadorDos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelJugadorCuatro" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,6 +84,26 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAvanzarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelJugadorUno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JUGADOR UNO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelJugadorDos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JUGADOR DOS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelJugadorTres">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JUGADOR TRES"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelJugadorCuatro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="JUGADOR CUATRO"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

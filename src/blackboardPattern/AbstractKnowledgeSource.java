@@ -13,11 +13,11 @@ public abstract class AbstractKnowledgeSource implements KnowledgeSource {
      protected BlackBoardObject bbo;
      protected BlackBoard bb;
 
-     @Override
-     public void run() {
-          updateBlackBoardObject(process(bbo));
-     }
+    public AbstractKnowledgeSource() {
+    }
 
+     
+    
      @Override
      public void updateBlackBoardObject(BlackBoardObject bbo) {
           bb.addBlackBoardObject(bbo);

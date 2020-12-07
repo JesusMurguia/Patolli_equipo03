@@ -11,6 +11,7 @@ package InterfazGrafica;
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
     FrmConfiguracionPartida configScreen=new FrmConfiguracionPartida();
+    FrmUnirsePartida unirsePartida = new FrmUnirsePartida();
   
     /**
      * Creates new form FrmIniciarPartida
@@ -84,6 +85,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     private void unirsePartida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unirsePartida
      //  waitingplayers.setVisible(true);
+     unirsePartida.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_unirsePartida
 

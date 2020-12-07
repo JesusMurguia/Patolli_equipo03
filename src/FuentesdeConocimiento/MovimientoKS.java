@@ -1,10 +1,11 @@
 package FuentesdeConocimiento;
 
+import blackboardObjects.apuestaBBO;
 import blackboardObjects.movimientoBBO;
-import blackboardObjects.tirarDadosBBO;
 import blackboardPattern.AbstractKnowledgeSource;
 import blackboardPattern.BlackBoard;
 import blackboardObjects.BlackBoardObject;
+import blackboardObjects.tirarDadosBBO;
 
 /**
  * The DeltaSpeedDataKS is an implementation of {@link AbstractKnowledgeSource}
@@ -17,13 +18,13 @@ import blackboardObjects.BlackBoardObject;
  * @author Nalla Senthilnathan http://github.com/mapteb
  *
  */
-public class tirarDadosKS extends AbstractKnowledgeSource {
+public class MovimientoKS extends AbstractKnowledgeSource {
 
      public boolean isInterested(BlackBoardObject bbo, BlackBoard bb) {
 
-          if (bbo instanceof tirarDadosBBO) {
+          if (bbo instanceof movimientoBBO) {
         	  
-               this.bbo = (tirarDadosBBO)bbo;
+               this.bbo = (movimientoBBO)bbo;
                this.bb = bb;
 
                return true;
@@ -31,13 +32,20 @@ public class tirarDadosKS extends AbstractKnowledgeSource {
           return false;
      }
 
-     public BlackBoardObject process(BlackBoardObject bbo) {
-    	 
-          BlackBoardObject movimientoBBO = new movimientoBBO();
+     @Override
+     public void process() {
+          BlackBoardObject tirardadosBBO = new tirarDadosBBO();
+
+
+          try {
+        	  //pretend the KS is working
+               Thread.sleep(1000);
+          } catch (InterruptedException iex) {
+               //
+          }
           
+          System.out.println("==>> turnoKS procesó turnoBBO");
           
-          System.out.println("==>> tirarDadosKS procesó tirarDadosBBO");
-          return movimientoBBO;
 
      }
 }

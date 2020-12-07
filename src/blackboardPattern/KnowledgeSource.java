@@ -8,11 +8,11 @@ import blackboardObjects.BlackBoardObject;
  * @author Nalla Senthilnathan http://github.com/mapteb
  *
  */
-public interface KnowledgeSource extends Runnable {
+public interface KnowledgeSource  {
 
      public boolean isInterested(BlackBoardObject bbo, BlackBoard bb);
 
-     public BlackBoardObject process(BlackBoardObject bbo);
+     public void process();
 
      public void updateBlackBoardObject(BlackBoardObject bbo);
 }

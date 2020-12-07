@@ -20,28 +20,34 @@ public abstract class AbstractBlackBoardController implements BlackBoardControll
 
      @Override
      public void update(Observable bb, Object bbo) {
-
+        
           if (((BlackBoardObject) bbo).isReady())
                execOutcome((BlackBoardObject) bbo);
           else {
-               for (KnowledgeSource ks : ksList) {
+            for (KnowledgeSource ks : ksList) {
+                  
                     if (ks.isInterested((BlackBoardObject) bbo, (AbstractBlackBoard) bb)) {
-                         enrollKnowledgeSource(ks, exsvc);
+                        
+                         enrollKnowledgeSource(ks);
                          break;
                     }
                }
           }
      }
 
+     @Override
      public void setKnowledgeSourceList(List<KnowledgeSource> ksList) {
           this.ksList = ksList;
      }
 
-     public void enrollKnowledgeSource(KnowledgeSource ks, ExecutorService exsvc) {
+     @Override
+     public void enrollKnowledgeSource(KnowledgeSource ks) {
 
-          exsvc = Executors.newFixedThreadPool(1);
-          exsvc.submit(ks);
-          exsvc.shutdown();
+        //  exsvc = Executors.newFixedThreadPool(1);
+          //exsvc.submit(ks);
+          //exsvc.shutdown();
+          
+          ks.process();
 
      }
 

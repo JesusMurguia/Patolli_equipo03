@@ -16,8 +16,9 @@ import java.util.ArrayList;
  */
 public class Ficha {
      
-    List <RegistroMovimiento> registros= new  ArrayList<>();
+ List <RegistroMovimiento> registros= new  ArrayList<>();
 iCasilla casilla;
+
 
 private int x=0;
 private int y=0;

@@ -6,6 +6,10 @@
 
 package InterfazGrafica;
 
+import Dominio.Jugador;
+import Dominio.Tablero;
+import blackboardObjects.CrearPartidaBBO;
+
 /**
  *
  * @author jesus
@@ -28,38 +32,30 @@ int numeroCasillas = 44;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        Casillas = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jTextFieldMontoFijo = new javax.swing.JTextField();
+        jTextFieldMontoApuesta = new javax.swing.JTextField();
+        jTextFieldNombreJugador = new javax.swing.JTextField();
         crearPartida = new javax.swing.JButton();
         CasillasCombo = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        montoApuestaJug = new javax.swing.JLabel();
-        montoApuestaJug1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jComboBoxNumeroFichas = new javax.swing.JComboBox<>();
+        jLabelNombreJugador = new javax.swing.JLabel();
+        jLabelmontoFijo = new javax.swing.JLabel();
+        jLabelMontoApuesta = new javax.swing.JLabel();
+        jLabelNumeroFichas = new javax.swing.JLabel();
+        jLabelTamanioTablero = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldMontoFijo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldMontoFijoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 140, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 140, 30));
-
-        Casillas.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        Casillas.setForeground(new java.awt.Color(255, 255, 255));
-        Casillas.setText("Tamaño del tablero:");
-        getContentPane().add(Casillas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Numero de fichas:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
+        getContentPane().add(jTextFieldMontoFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 140, 30));
+        getContentPane().add(jTextFieldMontoApuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 140, 30));
+        getContentPane().add(jTextFieldNombreJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 140, 30));
 
         crearPartida.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         crearPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/button_crear-partida (1).png"))); // NOI18N
@@ -81,41 +77,58 @@ int numeroCasillas = 44;
         });
         getContentPane().add(CasillasCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 130, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 130, 30));
+        jComboBoxNumeroFichas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6" }));
+        getContentPane().add(jComboBoxNumeroFichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 130, 30));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Monto de apuesta:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 170, -1));
+        jLabelNombreJugador.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelNombreJugador.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreJugador.setText("Nombre del jugador");
+        getContentPane().add(jLabelNombreJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
-        montoApuestaJug.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        montoApuestaJug.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(montoApuestaJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 260, -1));
+        jLabelmontoFijo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelmontoFijo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelmontoFijo.setText("Monto fijo:");
+        getContentPane().add(jLabelmontoFijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 110, -1));
 
-        montoApuestaJug1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        montoApuestaJug1.setForeground(new java.awt.Color(255, 255, 255));
-        montoApuestaJug1.setText("Monto fijo:");
-        getContentPane().add(montoApuestaJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 110, -1));
+        jLabelMontoApuesta.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelMontoApuesta.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMontoApuesta.setText("Monto de apuesta:");
+        getContentPane().add(jLabelMontoApuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 170, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/menuprincipal.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -110, 870, 1050));
+        jLabelNumeroFichas.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelNumeroFichas.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumeroFichas.setText("Numero de fichas:");
+        getContentPane().add(jLabelNumeroFichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
+
+        jLabelTamanioTablero.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelTamanioTablero.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTamanioTablero.setText("Tamaño del tablero:");
+        getContentPane().add(jLabelTamanioTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebagraficos/imgs/menuprincipal.png"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -120, 800, 1050));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearPartida(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearPartida
+
+        Tablero tablero = new Tablero(Double.valueOf(jTextFieldMontoFijo.getText()),Double.valueOf(jTextFieldMontoApuesta.getText()),
+                                      Integer.parseInt(jComboBoxNumeroFichas.getSelectedItem().toString()),this.numeroCasillas);
+        Jugador jugador = new Jugador(jTextFieldNombreJugador.getText(), Double.valueOf(jTextFieldMontoFijo.getText()));
+        
+        CrearPartidaBBO crearPartidaBBO = new CrearPartidaBBO(jugador, tablero);
+      
+       juegoPrincipal=new FrmMain();
        
-       // waitingplayers=new FrmSalaEspera(this.numeroCasillas);
-       juegoPrincipal=new FrmMain(this.numeroCasillas);
-       
-      //  waitingplayers.setVisible(true);
         this.dispose();
+       juegoPrincipal.crearPartida(crearPartidaBBO);
+       
     }//GEN-LAST:event_crearPartida
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jTextFieldMontoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMontoFijoActionPerformed
+       
+    }//GEN-LAST:event_jTextFieldMontoFijoActionPerformed
 
     private void checkNumeroCasillas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkNumeroCasillas
        System.out.println(CasillasCombo.getSelectedItem());
@@ -171,17 +184,18 @@ int numeroCasillas = 44;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Casillas;
     private javax.swing.JComboBox<String> CasillasCombo;
     private javax.swing.JButton crearPartida;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JLabel montoApuestaJug;
-    private javax.swing.JLabel montoApuestaJug1;
+    private javax.swing.JComboBox<String> jComboBoxNumeroFichas;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelMontoApuesta;
+    private javax.swing.JLabel jLabelNombreJugador;
+    private javax.swing.JLabel jLabelNumeroFichas;
+    private javax.swing.JLabel jLabelTamanioTablero;
+    private javax.swing.JLabel jLabelmontoFijo;
+    private javax.swing.JTextField jTextFieldMontoApuesta;
+    private javax.swing.JTextField jTextFieldMontoFijo;
+    private javax.swing.JTextField jTextFieldNombreJugador;
     // End of variables declaration//GEN-END:variables
 
 }

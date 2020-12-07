@@ -1,26 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package FuentesdeConocimiento;
 
-
+import blackboardObjects.BlackBoardObject;
 import blackboardObjects.tirarDadosBBO;
 import blackboardObjects.turnoBBO;
 import blackboardPattern.AbstractKnowledgeSource;
 import blackboardPattern.BlackBoard;
-import blackboardObjects.BlackBoardObject;
 
 /**
- * The FrontVehicleDataKS is an implementation of {@link AbstractKnowledgeSource}
- * This knowledge source operates on blackboard objects of the type FrontVehicleDataBBO
- * It transforms the FrontVehicleDataBBO into a DeltaSpeedDataBBO and adds it to the blackboard.
- * 
- * The process method in this class is just printing a message for now
- * 
- * @author Nalla Senthilnathan http://github.com/mapteb
  *
+ * @author javie
  */
-public class TurnoKS extends AbstractKnowledgeSource {
+public class PagarApuestaKS extends AbstractKnowledgeSource{
 
-     @Override
-     public boolean isInterested(BlackBoardObject bbo, BlackBoard bb) {
+    @Override
+    public boolean isInterested(BlackBoardObject bbo, BlackBoard bb) {
 
           if (bbo instanceof turnoBBO) {
                this.bbo = (turnoBBO) bbo;
@@ -37,7 +35,7 @@ public class TurnoKS extends AbstractKnowledgeSource {
      * @param bbo
      * @return 
       */
-     @Override
+    @Override
      public void process() {
           BlackBoardObject tirardadosBBO = new tirarDadosBBO();
 
@@ -54,8 +52,5 @@ public class TurnoKS extends AbstractKnowledgeSource {
 
      }
 
-
-
-
-
+    
 }

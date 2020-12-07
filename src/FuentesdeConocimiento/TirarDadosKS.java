@@ -1,7 +1,7 @@
 package FuentesdeConocimiento;
 
-import blackboardObjects.apuestaBBO;
 import blackboardObjects.movimientoBBO;
+import blackboardObjects.tirarDadosBBO;
 import blackboardPattern.AbstractKnowledgeSource;
 import blackboardPattern.BlackBoard;
 import blackboardObjects.BlackBoardObject;
@@ -17,13 +17,14 @@ import blackboardObjects.BlackBoardObject;
  * @author Nalla Senthilnathan http://github.com/mapteb
  *
  */
-public class movimientoKS extends AbstractKnowledgeSource {
+public class TirarDadosKS extends AbstractKnowledgeSource {
 
+     @Override
      public boolean isInterested(BlackBoardObject bbo, BlackBoard bb) {
 
-          if (bbo instanceof movimientoBBO) {
+          if (bbo instanceof tirarDadosBBO) {
         	  
-               this.bbo = (movimientoBBO)bbo;
+               this.bbo = (tirarDadosBBO)bbo;
                this.bb = bb;
 
                return true;
@@ -31,14 +32,16 @@ public class movimientoKS extends AbstractKnowledgeSource {
           return false;
      }
 
-     public BlackBoardObject process(BlackBoardObject bbo) {
-    	 
-          BlackBoardObject apuestaBBO = new apuestaBBO();
+     @Override
+     public void process() {
+          BlackBoardObject tirardadosBBO = new tirarDadosBBO();
+         //pretend the KS is working
+         // Thread.sleep(1000);
+
+
           
-          ((apuestaBBO)apuestaBBO).setReady(true);
+          System.out.println("==>> turnoKS procesó turnoBBO");
           
-          System.out.println("==>> movimientoKS procesó movimientoBBO");
-          return apuestaBBO;
 
      }
 }

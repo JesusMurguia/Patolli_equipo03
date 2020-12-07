@@ -16,9 +16,34 @@ import java.awt.Polygon;
 public class FrmCasillaTriangularCuadrada  extends FrmAbstractCasilla{
     
     
-    
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public FrmCasillaTriangularCuadrada(int x, int y) {
         super(x, y);
+    }
+
+    /**
+     *
+     */
+    public FrmCasillaTriangularCuadrada() {
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        g.setColor(Color.GREEN);
+        g.fillRect(getX(), getY(), getAlto(), getAncho());
+        //dibujar contorno
+        g.setColor(Color.BLACK);
+        g.drawRect(getX(), getY(), getAlto(), getAncho());
+
+        if (getFichaUno() != null) {
+            getFichaUno().setX(getX());
+            getFichaUno().setY(getY());
+            getFichaUno().paint(g);
+        }
     }
 
     @Override
@@ -26,22 +51,4 @@ public class FrmCasillaTriangularCuadrada  extends FrmAbstractCasilla{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void paint(Graphics g) {
-        g.setColor(Color.black);
-        Polygon FiguratTriangulo = new Polygon();
-
-        g.setColor(Color.PINK);
-        g.fillRect(getX(), getY(), getAlto(), getAncho());
-        //dibujar contorno
-        g.setColor(Color.BLACK);
-        g.drawRect(getX(), getY(), getAlto(), getAncho());
-        // (x1 + (ancho / 2), y)
-        FiguratTriangulo.addPoint(getX() + (getAncho() / 2), getY());
-        FiguratTriangulo.addPoint((getX() + (getAncho() / 2)) + getAncho(), getY());
-        // (x2, y + ancho)
-        FiguratTriangulo.addPoint(getX() + getAncho(), getY() + getAlto());
-        g.drawPolygon(FiguratTriangulo);
-        g.fillPolygon(FiguratTriangulo);
-    }
 }

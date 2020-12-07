@@ -22,10 +22,14 @@ public class PatolliMultiServer {
 
         int portNumber = 4444;
         boolean listening = true;
+      
         
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) { 
             while (listening) {
+                
 	            new PatolliMultiServerThread(serverSocket.accept()).start();
+                    
+                  
 	        }
 	    } catch (IOException e) {
             System.err.println("Could not listen on port " + portNumber);

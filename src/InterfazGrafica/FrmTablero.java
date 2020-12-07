@@ -12,7 +12,7 @@ import java.awt.Graphics;
  *
  * @author javie
  */
-public class Tablero extends Canvas {
+public class FrmTablero extends Canvas {
 //tablero de 68, 60 ,52,44
     //14  12  10 08
     //16  14  12 10
@@ -21,7 +21,7 @@ public class Tablero extends Canvas {
    // private Caña cañas[];
     int numeroCasillas;
 
-    public Tablero(int numeroCasillas) {
+    public FrmTablero(int numeroCasillas) {
         this.numeroCasillas = numeroCasillas;
         casillas = new FrmAbstractCasilla[numeroCasillas];
         calculateSquares();
@@ -156,7 +156,7 @@ public class Tablero extends Canvas {
                 i = i + 1;
                 j++;
                 casillas[i] = new FrmCasillaTriangularCuadrada(x, y + 30 * j);
-                System.out.println("Cocaina");
+                
             } else {
                 casillas[i] = new FrmCasilla(x, y + 30 * j);
 //                System.out.println("Valor x: " + x);
@@ -216,10 +216,10 @@ public class Tablero extends Canvas {
             j++;
             if (casillaCentral && j == 0) {
                 casillas[i] = new FrmCasillaCentral(x - 30 * i, y);
-                System.out.println(x - 30 * i);
+              
             } else {
                 casillas[i] = new FrmCasilla(x - 30 * i, y);
-                System.out.println(x - 30 * i);
+               
             }
 
             casillas[i].paint(g);

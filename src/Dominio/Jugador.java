@@ -8,6 +8,7 @@ package Dominio;
 import Dominio.Ficha;
 import Dominio.CasillaCentral;
 import Dominio.Apuesta;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,22 +16,34 @@ import java.util.List;
  *
  * @author javie
  */
-public class Jugador {
+public class Jugador implements Serializable {
 
     private String nombre;
-    private boolean turno;
-    private int montoFijo;
+    private double montoFijo;
     private CasillaCentral casillaInicio;
     private List<Apuesta> apuestas = new ArrayList<>();
-    private Ficha fichas[] = new Ficha[6];
+    private Ficha fichas[];
 
-    public Jugador(String nombre, boolean turno, int montoFijo, CasillaCentral casillaInicio) {
+    public Jugador(String nombre, double montoFijo) {
         this.nombre = nombre;
-        this.turno = turno;
+         this.montoFijo = montoFijo;
+        
+    }
+    
+     public Jugador(String nombre) {
+        this.nombre = nombre;
+        
+        
+    }
+    
+    public Jugador( int montoFijo, CasillaCentral casillaInicio) {
+        
         this.montoFijo = montoFijo;
         this.casillaInicio = casillaInicio;
 
     }
+    
+    
 
     public CasillaCentral getCasillaInicio() {
         return casillaInicio;
@@ -59,19 +72,11 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public boolean isTurno() {
-        return turno;
-    }
-
-    public void setTurno(boolean turno) {
-        this.turno = turno;
-    }
-
-    public int getMontoFijo() {
+    public double getMontoFijo() {
         return montoFijo;
     }
 
-    public void setMontoFijo(int montoFijo) {
+    public void setMontoFijo(double montoFijo) {
         this.montoFijo = montoFijo;
     }
     

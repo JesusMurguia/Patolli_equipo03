@@ -1,8 +1,8 @@
 package Patolli;
 
-import FuentesdeConocimiento.tirarDadosKS;
+import FuentesdeConocimiento.TirarDadosKS;
 import FuentesdeConocimiento.TurnoKS;
-import FuentesdeConocimiento.movimientoKS;
+import FuentesdeConocimiento.MovimientoKS;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,8 +70,8 @@ public class patolli {
 
           List<KnowledgeSource> ksList = new ArrayList<KnowledgeSource>();
           ksList.add(new TurnoKS());
-          ksList.add(new tirarDadosKS());
-          ksList.add(new movimientoKS());     
+          ksList.add(new TirarDadosKS());
+          ksList.add(new MovimientoKS());     
           controller.setKnowledgeSourceList(ksList);
      }
 
